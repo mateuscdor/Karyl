@@ -11,7 +11,8 @@ global.APIs = { // API Prefix
   zeks: 'https://api.zeks.xyz',
   pencarikode: 'https://pencarikode.xyz',
   LeysCoder: 'https://leyscoders-api.herokuapp.com',
-  lol: 'https://api.lolhuman.xyz'
+  lol: 'https://api.lolhuman.xyz',
+  males: 'https://malest.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
