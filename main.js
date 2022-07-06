@@ -1,20 +1,21 @@
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+process.on('uncaughtException', console.error);
 require('./config')
 const {
   useSingleFileAuthState,
   DisconnectReason
 } = require('@adiwajshing/baileys')
+const { generate } = require('qrcode-terminal')
 const WebSocket = require('ws')
-const ws = require('ws')
-const { CONNECTING } = ws
 const path = require('path')
 const fs = require('fs')
 const yargs = require('yargs/yargs')
 const cp = require('child_process')
 const _ = require('lodash')
-const { makeWASocket } = require('./lib/simple.js')
 const syntaxerror = require('syntax-error')
 const P = require('pino')
 const os = require('os')
+const chalk = require('chalk')
 let simple = require('./lib/simple')
 var low
 try {
@@ -23,7 +24,12 @@ try {
   low = require('./lib/lowdb')
 }
 const { Low, JSONFile } = low
-const mongoDB = require('./lib/mongoDB')
+const {
+	mongoDB,
+	MongoDBV2
+} = require('./lib/mongoDB')
+
+simple.protoType()
 
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 // global.Fn = function functionCallBack(fn, ...args) { return fn.call(global.conn, ...args) }
@@ -31,8 +37,7 @@ global.timestamp = {
   start: new Date
 }
 
-const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
-//const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 // console.log({ opts })
@@ -57,6 +62,7 @@ global.loadDatabase = async function loadDatabase() {
     stats: {},
     msgs: {},
     sticker: {},
+    settings: {},
     ...(global.db.data || {})
   }
   global.db.chain = _.chain(global.db.data)
@@ -66,18 +72,19 @@ loadDatabase()
 // if (opts['cluster']) {
 //   require('./lib/cluster').Cluster()
 // }
-global.authFile = `${opts._[0] || 'session'}.data.json`
-const { state, saveState } = useSingleFileAuthState(global.authFile)
+const authFile = `${opts._[0] || 'session'}.data.json`
+global.isInit = !fs.existsSync(authFile)
+const { state, saveState } = useSingleFileAuthState(authFile)
 
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
-  browser: ['Karyl-Bot','Chrome','1.0.0'],
-  // logger: pino({ level: 'trace' })
+  logger: P({ level: 'silent'}),
+  version: [2, 2204, 13],
+  browser: ['Karyl-Bot', 'IOS', '4.1.0']
 }
 
-global.conn = makeWASocket(connectionOptions)
-conn.isInit = false
+global.conn = simple.makeWASocket(connectionOptions)
 
 if (!opts['test']) {
   if (global.db) setInterval(async () => {
@@ -85,17 +92,23 @@ if (!opts['test']) {
     if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp'], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
   }, 30 * 1000)
 }
+if (opts['big-qr'] || opts['server']) conn.ev.on('qr', qr => generate(qr, { small: false }))
 if (opts['server']) require('./server')(global.conn, PORT)
 
 async function connectionUpdate(update) {
-  const { connection, lastDisconnect, isNewLogin } = update
-  if (isNewLogin) conn.isInit = true
-  const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-  if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState !== CONNECTING) {
-    console.log(await global.reloadHandler(true).catch(console.error))
-    global.timestamp.connect = new Date
+  const { connection, lastDisconnect } = update
+  if (connection == 'connecting') console.log(chalk.redBright('🕛 Mengaktifkan Bot, Harap tunggu sebentar...'))
+  if (connection == 'open') {
+      console.log(chalk.green('Connected✅'))
+      await conn.hehe("6282245409072@s.whatsapp.net", global.ftoli)
   }
-  if (global.db.data == null) loadDatabase()
+  if (connection == 'close') console.log(chalk.red('⏹️Koneksi berhenti dan mencoba menghubungkan kembali...'))
+  global.timestamp.connect = new Date
+  if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn.ws.readyState !== WebSocket.CONNECTING) {
+    console.log(global.reloadHandler(true))
+  }
+  if (global.db.data == null) await loadDatabase()
+  //console.log(JSON.stringify(update, null, 4))
 }
 
 
@@ -124,21 +137,36 @@ global.reloadHandler = function (restatConn) {
   if (!isInit) {
     conn.ev.off('messages.upsert', conn.handler)
     conn.ev.off('group-participants.update', conn.participantsUpdate)
+    conn.ev.off('groups.update', conn.groupsUpdate)
+    conn.ev.off('message.delete', conn.onDelete)
     conn.ev.off('connection.update', conn.connectionUpdate)
     conn.ev.off('creds.update', conn.credsUpdate)
   }
 
-  conn.welcome = 'Hai, @user! Selamat datang di grup @subject!\n\nDeskripsi:\n@desc'
-  conn.bye = 'Selamat jalan beban grp @user!'  
+  conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject\n\n@desc'
+  conn.bye = 'Selamat tinggal @user!'
   conn.spromote = '@user sekarang admin!'
   conn.sdemote = '@user sekarang bukan admin!'
+  conn.sDesc = 'Deskripsi telah diubah ke \n@desc'
+  conn.sSubject = 'Judul grup telah diubah ke \n@subject'
+  conn.sIcon = 'Icon grup telah diubah!'
+  conn.sRevoke = 'Link group telah diubah ke \n@revoke'
+  conn.sAnnounceOn = 'Group telah di tutup!\nsekarang hanya admin yang dapat mengirim pesan.'
+  conn.sAnnounceOff = 'Group telah di buka!\nsekarang semua peserta dapat mengirim pesan.'
+  conn.sRestrictOn = 'Edit Info Grup di ubah ke hanya admin!'
+  conn.sRestrictOff = 'Edit Info Grup di ubah ke semua peserta!'
+
   conn.handler = handler.handler.bind(conn)
   conn.participantsUpdate = handler.participantsUpdate.bind(conn)
+  conn.groupsUpdate = handler.groupsUpdate.bind(conn)
+  conn.onDelete = handler.delete.bind(conn)
   conn.connectionUpdate = connectionUpdate.bind(conn)
   conn.credsUpdate = saveState.bind(conn)
 
   conn.ev.on('messages.upsert', conn.handler)
   conn.ev.on('group-participants.update', conn.participantsUpdate)
+  conn.ev.on('groups.update', conn.groupsUpdate)
+  conn.ev.on('message.delete', conn.onDelete)
   conn.ev.on('connection.update', conn.connectionUpdate)
   conn.ev.on('creds.update', conn.credsUpdate)
   isInit = false
@@ -162,7 +190,7 @@ global.reload = (_ev, filename) => {
     let dir = path.join(pluginFolder, filename)
     if (dir in require.cache) {
       delete require.cache[dir]
-      if (fs.existsSync(dir)) conn.logger.info(`re - require plugin '${filename}'`)
+      if (fs.existsSync(dir)) conn.logger.info(`re require plugin '${filename}'`)
       else {
         conn.logger.warn(`deleted plugin '${filename}'`)
         return delete global.plugins[filename]
@@ -216,7 +244,7 @@ async function _quickTest() {
     gm,
     find
   }
-  // require('./lib/sticker').support = s
+  require('./lib/sticker').support = s
   Object.freeze(global.support)
 
   if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
@@ -227,3 +255,4 @@ async function _quickTest() {
 _quickTest()
   .then(() => conn.logger.info('Quick Test Done'))
   .catch(console.error)
+  
