@@ -14,31 +14,40 @@ global.APIs = { // API Prefix
   bg: 'http://bochil.ddns.net',
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
-  zeks: 'https://api.zeks.xyz',
+  zeks: 'https://api.zeks.me',
   pencarikode: 'https://pencarikode.xyz',
   LeysCoder: 'https://leyscoders-api.herokuapp.com',
+  neoxr: 'https://neoxr-api.herokuapp.com',
+  amel: 'https://melcanz.com',
+  hardianto: 'https://hardianto.xyz',
   lol: 'https://api.lolhuman.xyz',
+  adicug: 'https://api.adiofficial.xyz',
   males: 'https://malest.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
+  'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://api.xteam.xyz': 'RobbyCatur',
+  'https://melcanz.com': 'apikeylu',
+  'https://api.lolhuman.xyz': 'c6670fc7e461b7623a8fdf9f',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
-  'https://api.zeks.xyz': 'apivinz',
+  'https://api.zeks.me': 'apivinz',
   'https://pencarikode.xyz': 'pais',
+  'https://hardianto.xyz': 'hardianto',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll',
-  'https://api.lolhuman.xyz': 'c6670fc7e461b7623a8fdf9f'
+  'https://api.adiofficial.xyz': 'apikey lu'
 }
 
 global.multiplier = 69 // The higher, The harder levelup
 
 // Sticker WM
-global.packname = 'Karyl-Bot'
-global.author = 'Robby Catur'
+global.packname = data.namabot;
+global.author = data.owner;
 
+global.colong1 = 'Ciss 📸'
+global.colong2 = 'Robby Catur'
 global.img = pickRandom(waifu)
 global.fla = pickRandom(flaaa)
-
 
 let chalk = require('chalk')
 let file = require.resolve(__filename)
