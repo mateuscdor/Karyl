@@ -28,7 +28,7 @@ global.multiplier = 69 // The higher, The harder levelup
 
 // Sticker WM
 global.packname = 'Karyl-Bot'
-global.author = 'Robby Catur"
+global.author = 'Robby Catur'
 
 
 let chalk = require('chalk')
