@@ -1,4 +1,4 @@
-﻿let fs = require('fs')
+let fs = require('fs')
 
 let flaaa = JSON.parse(fs.readFileSync('./api/fla.json'))
 let waifu = JSON.parse(fs.readFileSync('./api/waifu.json'))
