@@ -30,6 +30,9 @@ global.multiplier = 69 // The higher, The harder levelup
 global.packname = 'Karyl-Bot'
 global.author = 'Robby Catur'
 
+global.img = pickRandom(waifu)
+global.fla = pickRandom(flaaa)
+
 
 let chalk = require('chalk')
 let file = require.resolve(__filename)
