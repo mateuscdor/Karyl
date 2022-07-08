@@ -4,12 +4,14 @@ let flaaa = JSON.parse(fs.readFileSync('./api/fla.json'))
 let waifu = JSON.parse(fs.readFileSync('./api/waifu.json'))
 let data = JSON.parse(fs.readFileSync('./data.json'))
 
+
 global.owner = JSON.parse(fs.readFileSync('./settings/owner.json')) // Put your number to folder /src/owner.json
 global.mods = JSON.parse(fs.readFileSync('./settings/moderator.json')) // Want some help?
 
 global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
+  bg: 'http://bochil.ddns.net',
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
   zeks: 'https://api.zeks.xyz',
