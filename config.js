@@ -1,10 +1,5 @@
 let fs = require('fs')
 
-const flaaa = JSON.parse(fs.readFileSync('./api/fla.json'))
-const waifu = JSON.parse(fs.readFileSync('./api/waifu.json'))
-const data = JSON.parse(fs.readFileSync('./data.json'))
-
-
 global.owner = JSON.parse(fs.readFileSync('./settings/owner.json')) // Put your number to folder /src/owner.json
 global.mods = JSON.parse(fs.readFileSync('./settings/moderator.json')) // Want some help?
 
