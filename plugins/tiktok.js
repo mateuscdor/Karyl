@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-let handler = async (m, { conn, args }) => {
+let handler = async (m, { conn, args, usedPrefix }) => {
   if (!args[0]) throw 'Mana link tiktoknya?'
   else m.reply('Proses')
   let res = await fetch('https://hadi-api.herokuapp.com/api/tiktok/?url=' + args[0])
