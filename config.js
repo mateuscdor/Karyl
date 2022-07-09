@@ -36,8 +36,8 @@ global.APIKeys = { // APIKey Here
 global.multiplier = 100 // The higher, The harder levelup
 
 // Sticker WM
-global.packname = data.namabot;
-global.author = data.owner;
+global.packname = 'Karyl Bot'
+global.author = 'By Robby Catur'
 
 //=========== Requirements ==========//  
         global.colong1 = 'Ciss 📸'
