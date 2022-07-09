@@ -42,8 +42,8 @@ global.author = data.owner;
 //=========== Requirements ==========//  
         global.colong1 = 'Ciss 📸'
         global.colong2 = 'By Robby Catur'
-global.img = pickRandom(waifu)
-global.fla = pickRandom(flaaa)
+global.img = pickRandom(JSON.parse(fs.readFileSync('./api/waifu.json')))
+global.fla = pickRandom(JSON.parse(fs.readFileSync('./api/fla.json')))
 
 let chalk = require('chalk')
 let file = require.resolve(__filename)
