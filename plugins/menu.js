@@ -20,7 +20,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-*ALL MENU BOT %me*
+*ALL MENU %me*
 %readmore`.trimStart(),
   header: ' %category ',
   body: ' • %cmd %islimit %isPremium',
