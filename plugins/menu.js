@@ -126,7 +126,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendFile(m.chat, '', '', `
+    conn.sendFile(m.chat, pp, 'pp.jpg', `
 *Mohon Dibaca!*
 
 Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
