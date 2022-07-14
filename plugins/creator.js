@@ -1,13 +1,20 @@
-function handler(m) {
-  this.reply(m.chat, `
-Follow me on https://instagram.com/robbycatur_3784
-Lets be friends at https://www.facebook.com/profile.php?id=100028282582689
-Chat me on wa.me/6282245409072
-`.trim(), m)
-  this.sendContact(m.chat, '6282245409072', 'Robby Catur', m)
+fconst delay = time => new Promise(res => setTimeout(res, time))
+let handler = async(m, { conn }) => {
+	conn.p = conn.p ? conn.p : {}
+	let id = m.chat
+	ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 9999999999999999999999999999999999999999999999999999999, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
+	fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': require('fs').readFileSync('./src/Karyl.jpg'), thumbnail: require('fs').readFileSync('./src/Karyl.jpg'),sendEphemeral: false}}}
+	conn.p[id] = [
+	await conn.sendKontak(m.chat, kontak2, fkontak, { contexInfo: { forwardingScore: null, isForwarded: false } })
+	]
+	await delay(100)
+  return conn.sendMessage(m.chat, { text: `Halo, @${await m.sender.split('@')[0]}, mohon untuk tidak chat owner jika tidak diperlukan`, mentions: [m.sender] }, { quoted: conn.p[id][0] })
+  await delay(100)
+  return delete conn.p[id]
 }
-handler.help = ['creator', 'owner']
+
+handler.help = ['owner']
 handler.tags = ['info']
-handler.command = /^(creator|owner)$/i
+handler.command = /^(owner|creator)$/i
 
 module.exports = handler
