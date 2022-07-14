@@ -32,6 +32,5 @@ let handler  = async (m, { conn, args }) => {
 handler.help = ['stiker2 (caption|reply media)', 'stiker2 <url>', 'stikergif2 (caption|reply media)', 'stikergif2 <url>']
 handler.tags = ['sticker']
 handler.command = /^s(tic?ker)?2(gif)?2(wm)?2$/i
-handler.disabled = true
 
 module.exports = handler
