@@ -30,6 +30,7 @@ const defaultMenu = {
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
+  let who = m.sender
   let pp = 'https://i.ibb.co/gS0XrNc/avatar-contact.png'
   try {
     pp = await conn.profilePictureUrl(who, 'image')
@@ -39,8 +40,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let { exp, limit, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = conn.getName(m.sender)
-    let who = m.sender
-    let pp = await conn.profilePictureUrl(who, 'image')
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
