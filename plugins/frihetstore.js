@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
         rows: [
           { title: 'Diamond ML', rowId: `.fsml` },
           { title: 'Diamond Free Fire', rowId: `.fsff` },
-          { title: 'Chip HDI', rowId: `.fshdi` }, mo
+          { title: 'Chip HDI', rowId: `.fshdi` },
         ]
       }
     ]
