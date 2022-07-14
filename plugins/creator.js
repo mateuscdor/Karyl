@@ -1,4 +1,4 @@
-fconst delay = time => new Promise(res => setTimeout(res, time))
+const delay = time => new Promise(res => setTimeout(res, time))
 let handler = async(m, { conn }) => {
 	conn.p = conn.p ? conn.p : {}
 	let id = m.chat
