@@ -39,9 +39,9 @@ global.multiplier = 100 // The higher, The harder levelup
 global.packname = 'Karyl Bot'
 global.author = 'By Robby Catur'
 
-//=========== Requirements ==========//  
-        global.colong1 = 'Ciss 📸'
-        global.colong2 = 'By Robby Catur'
+global.dtu = 'Instagram'
+global.urlnya = 'https://wa.me/6282245409072'
+
 global.img = pickRandom(JSON.parse(fs.readFileSync('./api/waifu.json')))
 global.fla = pickRandom(JSON.parse(fs.readFileSync('./api/fla.json')))
 
