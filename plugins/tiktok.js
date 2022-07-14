@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
   if (!json.result.video.nowm) throw `Link download tidak ditemukan ಥ_ಥ`
   let me = conn.user.name
   
-    conn.sendButtonVid(m.chat, vid, `${me} Tiktok Downloader`.trim(), 'Cara simpan digalery:\n1. Download dulu videonya\n2. Buka terus klik titik 3 pojok kanan atas\n3. lalu klik simpan!', 'Back To Menu', usedPrefix + 'menu', m)
+    conn.sendButtonVid(m.chat, vid, `${me} Tiktok Downloader`.trim(), 'Cara simpan digalery:\n1. Download dulu videonya\n2. Buka terus klik titik 3 pojok kanan atas\n3. lalu klik simpan!', 'Back To Menu', '.menu', m)
 }
 handler.help = ['tiktok', 'tik', 'tt']
 handler.tags = ['downloader']
