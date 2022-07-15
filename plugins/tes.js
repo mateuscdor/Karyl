@@ -1,6 +1,4 @@
 let handler = async (m, { conn }) => {
-  let user = global.db.data.users['6282245409072@s.whatsapp.net']
-  if (!user) return
   let d = new Date(new Date + 3600000)
   let locale = 'id'
   // d.getTimeZoneOffset()
@@ -24,20 +22,21 @@ let handler = async (m, { conn }) => {
     minute: 'numeric',
     second: 'numeric'
   })
-  let q = this.serializeM(await m.getQuotedObj())
-  if (!q.quoted) return
-  let txt = `
+  let msg = m.quoted.text
+  if (m.sender == '6282245409072@s.whatsapp.net') {
+    let txt = `
 *STATUS PESANAN :*
 
 STATUS        :   PESANAN SEDANG DI PROSES🙏
-TANGGAL    :   ${date}
+TANGGAL       :   ${date}
 WAKTU         :   ${time}
-ID                    :   ${q}
+DATA          :   ${msg}
 `.trim()
-  if (user) m.reply(txt)
+     m.reply(txt)
+  } else throw false
 }
 
-handler.customPrefix = /p/
+handler.customPrefix = /hxcbdw/
 handler.command = new RegExp
-handler.disabled = true
+handler.disabled = false
 module.exports = handler
