@@ -28,9 +28,9 @@ let handler = async (m, { conn }) => {
 *STATUS PESANAN :*
 
 STATUS        :   PESANAN SEDANG DI PROSES🙏
-TANGGAL       :   ${date}
+TANGGAL    :   ${date}
 WAKTU         :   ${time}
-DATA          :   ${msg}
+ID                    :   ${msg}
 `.trim()
      m.reply(txt)
   } else throw false
