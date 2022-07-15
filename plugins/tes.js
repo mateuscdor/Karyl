@@ -22,7 +22,7 @@ let handler = async (m, { conn }) => {
     minute: 'numeric',
     second: 'numeric'
   })
-  let msg = m.quoted.text
+  let msg = m.quoted.text ? m.quoted.text : ''
   if (m.sender == '6282245409072@s.whatsapp.net') {
     let txt = `
 *STATUS PESANAN :*
