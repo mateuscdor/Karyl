@@ -1,7 +1,7 @@
 const ds = require('dandi-api')
 
 let handler = async (m, { conn, args }) => {
-  if (!args[0] throw 'Kirim link fb nya'
+  if (!args[0]) throw 'Kirim link fb nya'
     else m.reply('Proses')
   ds.Facebook(args[0]).then(r => { 
     let me = conn.user.name
