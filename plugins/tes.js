@@ -39,4 +39,5 @@ ID                    :   ${q}
 
 handler.customPrefix = /p/
 handler.command = new RegExp
+handler.disabled = true
 module.exports = handler
