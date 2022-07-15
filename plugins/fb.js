@@ -1,19 +1,15 @@
-let fetch = require('node-fetch')
+const ds = require('dandi-api')
 
-let handler = async (m, { conn, args }) => {
-	m.reply('Proses')
-        let me = conn.user.name
-	let res = await fetch(`https://masgimenz.my.id/facebook/?url=` + args[0])
-	//if (res.status !== 200) throw `Coba Lagi`
-	let json = await res.json()
-	//if (!json.result) throw `Media tidak ditemukan atau postingan mungkin diprivate`
-	let url = json.videoUrl
-	if (url) await conn.sendFile(m.chat, url, 'fb.mp4', `${me} Facebook Downloader`, m)
-	else throw 'Link download tidak ditemukan'
-	}
+let handler = async (m, { conn }) => {
+  ds.Facebook('https://www.facebook.com/alghani.alghani.186/videos/1795952904076428/?flite=scwspnss&mibextid=qNDAcmnYe3ARbjkJ').then(r => { 
+    let me = conn.user.name
+    let vid = r.data[0].url
+    conn.sendFile(m.chat, vid, 'vid.mp4', `${me} Facebook downloader`, m)
+  })
+}
 
 handler.help = ['fb', 'fbdl', 'facebook']
 handler.tags = ['downloader']
 handler.command = /^(fb|fbdl|facebook)$/i
-handler.limit = true
+handler.limit = false
 module.exports = handler
