@@ -1,7 +1,7 @@
 let handler = m => m
 
 handler.all = async function (m) {
-  let reg = /(chip)/i
+  let reg = /(09863618736)/i
   let isTeks = reg.exec(m.text)
   let name = await conn.getName(m.sender)
   let user = global.db.data.users[m.sender]
