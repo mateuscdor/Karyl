@@ -4,12 +4,24 @@ let handler = async (m, { conn }) => {
   let judul = `${global.ucapan}, ${name}`.trim()
       const sections = [
       {
-        title: 'Tap untuk melihat daftar',
-        rows: [
-          { title: 'Diamond ML', rowId: `.fsml` },
-          { title: 'Diamond Free Fire', rowId: `.fsff` },
-          { title: 'Chip HDI', rowId: `.fshdi` },
-        ]
+        "title": "Daftar Barang",
+        "rows": [{
+           "title": "Diamond ML", 
+           "rowId": ".fsml"
+        }, { 
+           "title": "Diamond Free Fire", 
+           "rowId": ".fsff"
+        },{
+           "title": "Chip HDI", 
+           "rowId": ".fshdi"
+        }], 
+        "title": "Barang Dagangan"
+      }, {
+        "rows": [{
+           "title": "Gopay",
+           "rowId": ".fsgp"
+        }],
+        "title": "Payment"
       }
     ]
     const listMessage = {
