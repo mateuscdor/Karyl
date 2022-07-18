@@ -3,11 +3,7 @@ let handler = function (m) {
   let { chat, fromMe, id, isBaileys } = m.quoted
   if (!fromMe) throw false
   if (!isBaileys) throw 'Pesan tersebut bukan dikirim oleh bot!'
-  this.deleteMessage(chat, {
-    fromMe,
-    id,
-    remoteJid: chat
-  })
+  conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
 }
 handler.help = ['del', 'delete']
 handler.tags = ['info']
