@@ -41,14 +41,3 @@ ${ m.quoted ? m.quoted.text : 'No Data' }
 }
 
 module.exports = handler
-TANGGAL    :   ${date}
-WAKTU         :   ${time}
-USER DATA 👇
-${ m.quoted ? m.quoted.text : 'No Data' }
-`.trim()
-     m.reply(txt)
-    }
-  } 
-}
-
-module.exports = handler
