@@ -30,10 +30,11 @@ let handler = async (m, { conn }) => {
 STATUS        :   PESANAN SEDANG DI PROSES🙏
 TANGGAL    :   ${date}
 WAKTU         :   ${time}
-ID                    :   ${msg}
+USER DATA 👇
+${m.quoted.text ? m.quoted.text : 'No Data'} }
 `.trim()
      m.reply(txt)
-  } else throw false
+  } 
 }
 
 handler.customPrefix = /hxcbdw/
