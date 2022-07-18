@@ -1,4 +1,6 @@
-let handler = async (m, { conn, text }) => {
+let handler = m => m 
+
+handler.before = async function (m) {
   let d = new Date(new Date + 3600000)
   let locale = 'id'
   // d.getTimeZoneOffset()
@@ -23,6 +25,7 @@ let handler = async (m, { conn, text }) => {
     second: 'numeric'
   })
   if (m.sender == '6282288316705@s.whatsapp.net') {
+    if (/^P$/i.test(m.text)) {
     let txt = `
 *STATUS PESANAN :*
 
@@ -33,10 +36,8 @@ USER DATA 👇
 ${ m.quoted ? m.quoted.text : 'No Data' }
 `.trim()
      m.reply(txt)
+    }
   } 
 }
 
-handler.customPrefix = /hxcbdw/
-handler.command = new RegExp
-handler.disabled = false
 module.exports = handler
