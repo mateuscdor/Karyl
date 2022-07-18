@@ -21,8 +21,11 @@ let handler = async (m, { conn }) => {
            "title": "Gopay",
            "rowId": ".fsgp"
         }, {
-           "title": "All Payment"
+           "title": "All Payment",
            "rowId": ".fsp"
+        }, {
+           "title": "QRIS"
+           "rowId": ".fsqris"
         }],
         "title": "Payment"
       }
