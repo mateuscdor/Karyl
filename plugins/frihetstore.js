@@ -11,7 +11,7 @@ let handler = async (m, { conn }) => {
         }, { 
            "title": "Diamond Free Fire", 
            "rowId": ".fsff"
-        },{
+        }, {
            "title": "Chip HDI", 
            "rowId": ".fshdi"
         }], 
@@ -20,6 +20,9 @@ let handler = async (m, { conn }) => {
         "rows": [{
            "title": "Gopay",
            "rowId": ".fsgp"
+        }, {
+           "title": "All Payment"
+           "rowId": ".fsp"
         }],
         "title": "Payment"
       }
