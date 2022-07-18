@@ -22,7 +22,7 @@ let handler = async (m, { conn, text }) => {
     minute: 'numeric',
     second: 'numeric'
   })
-  let msg = m.quoted.text ? m.quoted.text : ''
+  let quoted = m.quoted.text ? m.quoted.text : ''
   if (m.sender == '6282245409072@s.whatsapp.net') {
     let txt = `
 *STATUS PESANAN :*
@@ -31,7 +31,7 @@ STATUS        :   PESANAN SEDANG DI PROSES🙏
 TANGGAL    :   ${date}
 WAKTU         :   ${time}
 USER DATA 👇
-${m.quoted.text ? m.quoted.text : 'No Data'} }
+${isQuoted ? quoted : 'No Data'} }
 `.trim()
      m.reply(txt)
   } 
