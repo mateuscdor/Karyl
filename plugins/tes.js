@@ -1,4 +1,4 @@
-let handler = async (m, { conn }) => {
+let handler = async (m, { conn, text }) => {
   let d = new Date(new Date + 3600000)
   let locale = 'id'
   // d.getTimeZoneOffset()
