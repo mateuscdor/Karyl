@@ -22,7 +22,7 @@ let handler = async (m, { conn, text }) => {
     minute: 'numeric',
     second: 'numeric'
   })
-  if (m.sender == '6282245409072@s.whatsapp.net') {
+  if (m.sender == '6282288316705@s.whatsapp.net') {
     let txt = `
 *STATUS PESANAN :*
 
