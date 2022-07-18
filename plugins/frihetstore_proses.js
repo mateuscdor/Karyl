@@ -24,7 +24,7 @@ handler.before = async function (m) {
     minute: 'numeric',
     second: 'numeric'
   })
-  if (m.sender == '6282288316705@s.whatsapp.net' || m.sender == '6282245409072@s.whatsapp.net') {
+  if (m.sender == '6282288316705@s.whatsapp.net') {
     if (/^P|proses$/i.test(m.text)) {
     let txt = `
 *STATUS PESANAN :*
