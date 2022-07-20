@@ -1,24 +1,24 @@
 let handler = async (m, { conn }) => {
   let teks = `*_PriceList Chip HDI_*
-*HARGA NET*
+*_VIA ID - NICK_*
 🔰 *FrihetStore* 🔰
 
-100M = 7.000
-200M = 14.000
-300M = 20.000
-400M = 26.500
-500M = 32.500
-600M = 39.500
-700M = 45.500
-800M = 52.000
-900M = 59.000
-1B       = 62.500
-3B+     = X62.000
-7B+     = X61.500
+100M 🪙 = Rp. 7.000
+200M 🪙 = Rp. 13.000
+300M 🪙 = Rp. 19.500
+400M 🪙 = Rp. 26.000
+500M 🪙 = Rp. 32.500
+600M 🪙 = Rp. 39.000
+700M 🪙 = Rp. 45.500
+800M 🪙 = Rp. 52.000
+900M 🪙 = Rp. 58.500
+1B       🪙 = Rp. 62.500
+3B+     🪙 = Rp. X62.000
+8B+     🪙 = Rp. X61.500
 
-NOTE : 
-READY SETIAP HARI 100B
-BONGKAR LANGSUNG PM ADMIN`.trim()
+NOTE :
+~ MAX 2 ID SETIAP PEMBELIAN
+~ SS BUKTI TF SESUAI NOMINAL JIKA KURANG TIDAK DI PROSES`.trim()
   m.reply(teks)
 }
 
