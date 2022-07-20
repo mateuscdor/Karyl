@@ -33,7 +33,7 @@ handler.all = async function (m) {
     if (m.isGroup) {
     if (m.fromMe) return
     if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
-    	await this.reply(m.chat, m.msg.contextInfo.expiration == 604800 ? '\n\nketik *.ephe* untuk matiin pesan sementaranya, biar tombolnya bisa dipake' : 'Naon ajig tag aing sia kanjut', m)
+    	await this.reply(m.chat, 'Naon ajig tag aing sia kanjut', m)
     }
 }
     
