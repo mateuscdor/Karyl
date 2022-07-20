@@ -6,7 +6,7 @@ handler.before = async function (m, { isAdmin, isBotAdmin }) {
   let chat = global.db.data.chats[m.chat]
   let isGroupLink = linkRegex.exec(m.text)
 
-  if (chat.antiLink && isGroupLink && !isAdmin && !m.isBaileys && m.isGroup) {
+  if (chat.antiLink && isGroupLink && !m.isBaileys && m.isGroup) {
     let thisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
     if (m.text.includes(thisGroup)) throw false // jika link grup itu sendiri gak dikick
       if (!isBotAdmin) m.reply(` *Antilink Sedang Aktif!* ${isAdmin ? `\n\nEh ternyata admin` : `\n\nSayangnya aku nkan admin`}`)
