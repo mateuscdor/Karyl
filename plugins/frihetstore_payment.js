@@ -1,7 +1,10 @@
 let handler = async (m, { conn }) => {
   conn.reply(m.chat, `
 *_PAYMENT :_*
-💸 OVO/SHOPEE/NEO/DANA : 082288316705 (AN M. ZULFADLI)
+💸 OVO/SHOPEE/NEO : 082288316705 (AN M. ZULFADLI)
+💸 DANA : 
+https://link.dana.id/qr/1bxclhfn 
+An : M. ZULFADLI
 💸 GOPAY DI MENU
 💸 QRIS DI MENU
 💸 BCA VIRTUAL AKUN 
