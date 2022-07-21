@@ -6,6 +6,9 @@ let handler = async (m, { conn }) => {
 https://link.dana.id/qr/1bxclhfn 
 An : M. ZULFADLI
 💸 GOPAY DI MENU
+💸 SEABANK 
+       901979730857  
+       Muhammad Zulfadli
 💸 QRIS DI MENU
 💸 BCA VIRTUAL AKUN 
        1375300000623051
