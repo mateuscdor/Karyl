@@ -22,8 +22,8 @@ Chip Kami Ready Silahkan Di Order,Jangan Langsung Transfer, silahkan lakukan Ord
   {
     title: 'LIST MENU FAZRI STORE',
     rows: [ { 
-        title: 'ORDER CHIP',
-        description: 'Pembelian Chip',
+        title: 'ORDER CHIPS',
+        description: 'Pembelian Chips',
         rowId: '.chip'
     }, {
         title: 'CEK ADMIN',
