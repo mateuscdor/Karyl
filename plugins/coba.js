@@ -2,8 +2,7 @@ let handler = m => m
 
 handler.all = async function (m) {
   if (m.sender == '6282245409072@s.whatsapp.net' || m.sender == '62895622473820@s.whatsapp.net') {
-  let reg = /(ch?ip)/i
-  let isTeks = reg.exec(m.text)
+  if (m.text.startsWith('chip') {
   let name = await conn.getName(m.sender)
   let user = global.db.data.users[m.sender]
   let judul = `⬣──────「 *MENU* 」─────⬣
@@ -45,6 +44,7 @@ Chip Kami Ready Silahkan Di Order,Jangan Langsung Transfer, silahkan lakukan Ord
     }
   if (isTeks && !m.fromMe) {
     return this.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
+  }
   }
   }
 }
