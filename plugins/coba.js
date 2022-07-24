@@ -2,7 +2,7 @@ let handler = m => m
 
 handler.all = async function (m) {
   if (m.sender == '6282245409072@s.whatsapp.net' || m.sender == '62895622473820@s.whatsapp.net') {
-  if (m.text.startsWith('chip') {
+  if (m.text.startsWith('chip')) {
   let name = await conn.getName(m.sender)
   let user = global.db.data.users[m.sender]
   let judul = `⬣──────「 *MENU* 」─────⬣
