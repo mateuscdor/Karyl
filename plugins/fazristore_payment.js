@@ -25,7 +25,7 @@ jangan langsung Transfer jika kalian blum memilih Pembayaran, jika langsung tf d
       sections
     }
   if (!m.fromMe) {
-    return this.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
+    return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
   }
 }
 
