@@ -33,7 +33,7 @@ jangan langsung Transfer jika kalian blum memilih Pembayaran, jika langsung tf d
       "rowId": ".fazripay"
     }, {
       "title": "500M",
-      "description": "Rp. 32.100"
+      "description": "Rp. 32.100",
       "rowId": ".fazripay"
     }, {
       "title": "600M",
