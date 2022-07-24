@@ -26,7 +26,7 @@ let handler  = async (m, { conn, args }) => {
       quoted: m,
       mimetype: 'image/webp'
     })
-    else throw 'Conversion failed'
+    else throw `Error! Gunakan ${usedPrefix + command}2 untuk mencoba opsi lain`
   }
 }
 handler.help = ['stiker (caption|reply media)', 'stiker <url>', 'stikergif (caption|reply media)', 'stikergif <url>']
