@@ -23,7 +23,7 @@ Chip Kami Ready Silahkan Di Order,Jangan Langsung Transfer, silahkan lakukan Ord
     rows: [ { 
         title: 'ORDER CHIPS',
         description: 'Pembelian Chips',
-        rowId: '.chip'
+        rowId: '.fazriharga'
     }, {
         title: 'CEK ADMIN',
         description: 'Cek Admin Online',
