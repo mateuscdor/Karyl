@@ -1,5 +1,5 @@
 const { sticker } = require('../lib/sticker')
-let handler  = async (m, { conn, args }) => {
+let handler  = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
   try {
     let q = m.quoted ? m.quoted : m
