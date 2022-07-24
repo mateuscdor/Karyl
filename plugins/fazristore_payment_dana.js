@@ -1,4 +1,4 @@
-let handler = async (m, { conn }} => {
+let handler = async (m, { conn }) => {
   conn.reply(m.chat, `
   Dana
 0895622473820
