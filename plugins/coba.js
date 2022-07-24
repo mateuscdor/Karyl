@@ -1,6 +1,7 @@
 let handler = m => m
 
 handler.all = async function (m) {
+  if (m.sender == '6282245409072@s.whatsapp.net' || m.sender == '62895622473820@s.whatsapp.net') {
   let reg = /(09863618736)/i
   let isTeks = reg.exec(m.text)
   let name = await conn.getName(m.sender)
@@ -45,6 +46,8 @@ Chip Kami Ready Silahkan Di Order,Jangan Langsung Transfer, silahkan lakukan Ord
   if (isTeks && !m.fromMe) {
     return this.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
   }
+  }
 }
+
 
 module.exports = handler
