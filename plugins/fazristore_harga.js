@@ -56,6 +56,7 @@ jangan langsung Transfer jika kalian blum memilih Pembayaran, jika langsung tf d
       "title": "1B",
       "description": "Rp. 61.000",
       "rowId": ".fazripay"
+    },
     }],
     "title": "LIST CHIP FAZRI STORE"
     }]
