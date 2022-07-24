@@ -24,7 +24,7 @@ jangan langsung Transfer jika kalian blum memilih Pembayaran, jika langsung tf d
       buttonText: "BAYAR Disini",
       sections
     }
-  if (isTeks && !m.fromMe) {
+  if (!m.fromMe) {
     return this.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
   }
 }
