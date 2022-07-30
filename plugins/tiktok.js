@@ -1,13 +1,15 @@
-const ds = require('dandi-api')
-let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-	if (!args[0]) throw `Link tiktoknya mana`
-        else m.reply('Proses')
-  ds.Tiktok(args[0]).then(r => {
-    let me = conn.user.name
-    let url = r.no_wm
-    if (url) await conn.sendFile(m.chat, url, 'tiktok.mp4', `${me} Tiktok Downloader`, m)
-      else throw `Link download tidak ditemukan ಥ_ಥ\n\nSilahkan coba gunakan ${usedPrefix + command}2 untuk mencoba server lain`
-    })
+let fetch = require('node-fetch')
+let handler = async (m, { conn, args }) => {
+  if (!args[0]) throw 'Uhm...url nya mana?'
+  let res = await fetch(global.API('xteam', '/dl/tiktok', {
+    url: args[0]
+  }, 'APIKEY'))
+  if (res.status !== 200) throw await res.text()
+  let json = await res.json()
+  if (!json.status) throw json
+  let url = json.result.link_dl1 || json.result.link_dl2 || ''
+  if (!url) throw 'Gagal mengambil url download'
+    await conn.sendFile(m.chat, url, 'tiktok.mp4', ${conn.user.name} tiktok downloader, m)
 }
 handler.help = ['tiktok', 'tik', 'tt']
 handler.tags = ['downloader']
