@@ -13,5 +13,5 @@ let handler = async(m, { conn, args, isPrems, isOwner }) => {
 handler.help = ['ytmp3 <link>']
 handler.tags = ['downloader']
 handler.command = /^yt(a(udio)?|mp3|musik|lagu)$/i
-handler.limit = true
+handler.limit = false
 module.exports = handler
