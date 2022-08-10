@@ -6,7 +6,7 @@ require('fs').readdirSync('plugins').map(v=>global.reload('', v))
 conn.reply(m.chat, stdout.toString(), m)
 }}
 handler.help = ['update']
-handler.tags = ['host']
+handler.tags = ['owner']
 handler.command = /^update$/i
 handler.rowner = true
 handler.fail = null
