@@ -140,48 +140,7 @@ title: 'Bot sedang dalam fase uji coba',
 body: 'Hubungi saya jika ada saran', 
 sourceUrl: `https://wa.me/6282245409072`, 
 thumbnail: fs.readFileSync('./Karyl.jpg') }}})
-    const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-       hydratedTemplate: {
-         hydratedContentText: text.trim(),
-	 LocationMessage: null,
-         hydratedFooterText: 'Robby Catur',
-         hydratedButtons: [
-           {
-             urlButton: {
-               displayText: 'Instagram',
-               url: 'https://instagram.com/robbyv_2'
-             }
-           },
-           {
-             urlButton: {
-               displayText: 'Butuh Bantuan?',
-               url: 'https://wa.me/6282245409072/?text=Hai+min,+saya+butuh+bantuan+untuk+menggunakan+bot'    
-             }
-           },
-           {
-             quickReplyButton: {
-   	      displayText: 'Rules',
-   	      id: '.rules',
-              }
-           },
-           {
-             quickReplyButton: {
-               displayText: 'Owner',
-               id: '.owner',
-             }
-           },
-           {
-             quickReplyButton: {
-               displayText: 'Leaderboard',
-               id: '.lb',
-             }
-           }
-         ]
-       }
-     }
-   }), { userJid: m.sender, quoted: m });
-   return await conn.relayMessage(m.chat, template.message, { messageId: template.key.id }) 
+conn.sendButton(m.chat, text.trim(), '© Robby Catur', 'OWNER', '.owner', m)
    } catch (e) {
      conn.reply(m.chat, 'Maaf, menu sedang error', m)
      throw e
