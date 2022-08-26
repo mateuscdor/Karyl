@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!c) throw `Harap input sesuai format! Contoh: ${usedPrefix + command} 6282xxxxxxxxx|Seseorang|Aku sayang kamu`
   let format = `${global.ucapan}! Kamu dapat pesan nih!
 Dari: ${b}
-Pesan: ${c}` + readmore +`\n\nJika kamu menerima pesan tidak pantas, bersifat mengancam, merasa terganggu, silahkan lapor ke owner di https://wa.me/6282245409072! Owner akan membantu anda dengan senang hati!`
+Pesan: ${c}` + readMore +`\n\nJika kamu menerima pesan tidak pantas, bersifat mengancam, merasa terganggu, silahkan lapor ke owner di https://wa.me/6282245409072! Owner akan membantu anda dengan senang hati!`
   conn.reply(id + '@s.whatsapp.net', format, '')
 }
 handler.command = /^(menfes)$/i
