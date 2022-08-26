@@ -13,6 +13,7 @@ Jika kamu menerima pesan tidak pantas, bersifat mengancam, merasa terganggu, sil
   conn.reply(id + '@s.whatsapp.net', format, '')
 }
 handler.command = /^(menfes)$/i
+handler.private = true
 module.exports = handler
 
 function ucapan() {
