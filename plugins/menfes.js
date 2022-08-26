@@ -7,14 +7,18 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!c) throw `Harap input sesuai format! Contoh: ${usedPrefix + command} 6282xxxxxxxxx|Seseorang|Aku sayang kamu`
   let format = `${global.ucapan}! Kamu dapat pesan nih!
 Dari: ${b}
-Pesan: ${c}\n\n` + readMore +`Jika kamu menerima pesan tidak pantas, bersifat mengancam, merasa terganggu, dll, silahkan lapor ke owner di https://wa.me/6282245409072! Owner akan membantu anda dengan senang hati!`
+Pesan: ${c}\n\n` + readMore +`Jika kamu menerima pesan tidak pantas, bersifat mengancam, merasa terganggu, dll, silahkan lapor ke owner di https://wa.me/6282245409072! Owner akan membantu anda dengan senang hati!\n*Feature ID: 5967*`
+  let sd = m.sender  
   conn.reply(id + '@s.whatsapp.net', format, '')
   conn.reply(m.chat, `Pesanmu sukses dikirim!\n\nNote: *Kamu tidak akan menerima pesan balasan, karena fitur ini hanya dibuat untuk menyampaikan sesuatu secara rahasia!*`, m)
   conn.reply('6282245409072@s.whatsapp.net', `
-${m.sender} Mengirim pesan kepada wa.me/${a}
+${sd} Mengirim pesan kepada wa.me/${a}
 Dari: ${b}
 Pesan: ${c}
 `.trim(), '')
+  if (m.quoted || m.quoted.fromMe || m.quoted.isBaileys || /Feature ID/i.test(m.quoted.text)) {
+    conn.reply(sd, `Balasan: ${text}`, '')
+  }
 }
 handler.command = /^(menfes)$/i
 handler.private = true
