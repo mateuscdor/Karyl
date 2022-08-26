@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!a.startsWith('6')) throw `Masukkan nomor sesuai format!\n\nContoh: 6282xxxxxxxxx`
   if (!b) b = ''
   if (!c) throw `Harap input sesuai format! Contoh: ${usedPrefix + command} 6282xxxxxxxxx|Seseorang|Aku sayang kamu`
-  let format = `${ucapan}! Kamu dapat pesan nih!
+  let format = `${global.ucapan}! Kamu dapat pesan nih!
 Dari: ${b}
 Pesan: ${c}
 
