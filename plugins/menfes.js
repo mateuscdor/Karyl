@@ -16,9 +16,6 @@ ${sd} Mengirim pesan kepada wa.me/${a}
 Dari: ${b}
 Pesan: ${c}
 `.trim(), '')
-  if (m.quoted || m.quoted.fromMe || m.quoted.isBaileys || /Feature ID/i.test(m.quoted.text)) {
-    conn.reply(sd, `Balasan: ${text}`, '')
-  }
 }
 handler.command = /^(menfes)$/i
 handler.private = true
