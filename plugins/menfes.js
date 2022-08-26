@@ -9,6 +9,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 Dari: ${b}
 Pesan: ${c}\n\n` + readMore +`Jika kamu menerima pesan tidak pantas, bersifat mengancam, merasa terganggu, dll, silahkan lapor ke owner di https://wa.me/6282245409072! Owner akan membantu anda dengan senang hati!`
   conn.reply(id + '@s.whatsapp.net', format, '')
+  conn.reply(m.chat, `Pesanmu sukses dikirim!\n\nNote: *Kamu tidak akan menerima pesan balasan, karena fitur ini hanya dibuat untuk menyampaikan sesuatu secara rahasia!*`, m)
 }
 handler.command = /^(menfes)$/i
 handler.private = true
