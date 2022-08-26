@@ -1,5 +1,5 @@
 let moment = require('moment-timezone')
-let handler = async (m, { conn, text }) => {
+let handler = async (m, { conn, text, usedPrefix, command }) => {
   let [ a, b, c ] = text.split`|`
   let id = a
   if (!a.startsWith('6')) throw `Masukkan nomor sesuai format!\n\nContoh: 6282xxxxxxxxx`
