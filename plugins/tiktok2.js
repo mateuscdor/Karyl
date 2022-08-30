@@ -1,7 +1,6 @@
 const fetch = require('node-fetch')
 let handler = async (m, { conn, args }) => {
-  if (!args[0]) throw 'No link found'
-  else m.reply('Proses')
+  m.reply('Proses')
   let res = await fetch('https://hadi-api.herokuapp.com/api/tiktok/?url=' + args[0])
   let json = await res.json()
   let vid = json.result.video.nowm
@@ -13,4 +12,3 @@ handler.help = ['tiktok2', 'tik2', 'tt2']
 handler.tags = ['downloader']
 handler.command = /^(tt2|tik2|tiktok2)$/i
 module.exports = handler
-https?:\/\/(www\.|v(t|m)\.|t\.)?tiktok\.com
