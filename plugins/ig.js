@@ -8,9 +8,7 @@ let handler = async (m, { conn, args }) => {
   let txt = `
 ${me} Instagram downloader
 `.trim()
-  for (let i = 0; i < r.medias.length; i++) {
-    conn.sendFile(m.chat, r.medias[i].url, '', txt, m)
-    }
+    conn.sendFile(m.chat, r.medias.url, '', txt, m)
   })
 }
 handler.help = ['ig']
