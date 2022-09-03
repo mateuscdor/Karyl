@@ -4,7 +4,7 @@ let handler  = async (m, { conn, text }) => {
   for (let id of chats) {
        let bcbg = 'https://telegra.ph/file/b2ae8a0e437e4252d5124.png'
        await conn.delay(1500)
-       await conn.sendMessage(id, text.trim(), ftroli)
+       await conn.sendMessage(id, `*${conn.user.name} Broadcast*\n\n` + text.trim(), ftroli)
      }
   m.reply('*Broadcast selesai*')
 }
