@@ -122,7 +122,7 @@ module.exports = {
                     nsfw: false,
                     simi: false,
                     clear: false,
-                    clearTime: 0
+                    clearTime: 0,
                     download: true
                 }
                 let settings = global.db.data.settings[this.user.jid]
