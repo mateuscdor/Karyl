@@ -96,6 +96,7 @@ module.exports = {
                     if (!('simi' in chat)) chat.simi = false
                     if (!('clear' in chat)) chat.clear = false
                     if (!isNumber(chat.cleartime)) chat.clearTime = 0 
+                    if (!('download' in chat)) chat.download = true
                 } else global.db.data.chats[m.chat] = {
                     name: this.getName(m.chat),
                     closeGroup: false,
@@ -122,6 +123,7 @@ module.exports = {
                     simi: false,
                     clear: false,
                     clearTime: 0
+                    download: true
                 }
                 let settings = global.db.data.settings[this.user.jid]
                 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
